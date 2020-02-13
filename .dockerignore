@@ -1,0 +1,11 @@
+.idea/
+node_modules/*
+config/local*
+out/
+Terraform/
+
+Dockerfile
+build-docker.sh
+docker-compose.yml
+
+src/js/

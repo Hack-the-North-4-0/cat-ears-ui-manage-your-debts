@@ -1,0 +1,1 @@
+{"$schema":"../../meta/action.metadata.schema.json","name":"writeFile","description":"Persist a file to local storage.","latest":"2.2.1","author":"Integration","tags":["TERMINATES"]}

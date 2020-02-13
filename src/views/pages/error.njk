@@ -1,0 +1,22 @@
+{% extends "layouts/base.njk" %}
+
+{% from "breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% block titleAddendum %}
+    - {{ error.statusCode }} :: {{ error.message }}
+{% endblock %}
+
+{% block breadcrumbs %}
+    {{ govukBreadcrumbs({
+        items: [
+            {
+                text: "Home",
+                href: "/"
+            }
+        ]
+    }) }}
+{% endblock %}
+
+{% block content_body %}
+    <h1 class="govuk-heading-xl">{{ error.statusCode }} - {{ error.message }}</h1>
+{% endblock %}

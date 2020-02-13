@@ -1,0 +1,14 @@
+.govuk-background-error {
+  background-color: $govuk-error-colour;
+  color: govuk-colour("white");
+}
+
+.govuk-background-valid {
+  background-color: govuk-colour("green");
+  color: govuk-colour("white");
+}
+
+.govuk-background-light-grey {
+  background-color: govuk-colour("light-grey");
+  color: govuk-colour("black");
+}

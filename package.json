@@ -1,0 +1,68 @@
+{
+  "name": "cat-ears-ui-manage-your-debts",
+  "version": "1.0.0",
+  "description": "A UI portal to help citizens manage their debts",
+  "main": "src/app.js",
+  "scripts": {
+    "clean": "rm -rf public/",
+    "build": "npm run clean && npm run build:gulp",
+    "build:gulp": "gulp",
+    "quality:eslint": "eslint .",
+    "quality:eslint:fix": "eslint . --fix",
+    "regenerate-certs": "openssl req -x509 -newkey rsa:2048 -nodes -sha256 -subj '/CN=localhost' -keyout test/spec/helpers/certs/localhost-privkey.pem -out test/spec/helpers/certs/localhost-cert.pem",
+    "security:vulnerable-packages": "npm audit --registry=https://registry.npmjs.org --json",
+    "start": "node src/app.js",
+    "test": "npm run test:js && npm run test:browser",
+    "test:js": "NODE_ENV=test nyc --all mocha --config test/.mocharc.js",
+    "test:browser": "NODE_ENV=test nyc --all mocha --config test/.mocharc.browser.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hack-the-North-4-0/cat-ears-ui-manage-your-debts.git"
+  },
+  "keywords": [
+    "debts",
+    "debt",
+    "payments"
+  ],
+  "author": "Jayne Doe <jayne.doe@engineering.digital.dwp.gov.uk>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Hack-the-North-4-0/cat-ears-ui-manage-your-debts/issues"
+  },
+  "homepage": "https://github.com/Hack-the-North-4-0/cat-ears-ui-manage-your-debts#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bunyan": "^1.8.12",
+    "config": "^3.2.5",
+    "govuk-frontend": "^3.0.0",
+    "moment": "^2.24.0",
+    "nunjucks": "^3.2.0",
+    "restify": "^8.5.1",
+    "restify-errors": "^8.0.2",
+    "uuid": "^3.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@dwp/eslint-config-base": "^4.1.0",
+    "@dwp/eslint-config-mocha": "^1.0.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "chai-http": "^4.3.0",
+    "clear-require": "^3.0.0",
+    "eslint": "^6.8.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-sass": "^4.0.2",
+    "import-fresh": "^3.2.1",
+    "mocha": "^7.0.1",
+    "mock-require": "^3.0.3",
+    "nock": "^11.8.2",
+    "nyc": "^15.0.0",
+    "sinon": "^8.1.1",
+    "sinon-chai": "^3.4.0",
+    "zombie": "^6.1.4"
+  }
+}

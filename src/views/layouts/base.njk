@@ -1,0 +1,106 @@
+{% extends "template.njk" %}
+
+{% from "header/macro.njk" import govukHeader %}
+{% from "phase-banner/macro.njk" import govukPhaseBanner %}
+{% from "footer/macro.njk" import govukFooter %}
+
+{% set htmlLang = "en" %}
+{% set assetPath = "/assets" %}
+
+{% block pageTitle %}
+    GOV.UK - SFT Configuration Creator{% block titleAddendum %}{% endblock %}
+{% endblock %}
+
+{% block headIcons %}
+    {{ super() }}
+{% endblock %}
+
+{% block head %}
+    <link href="/assets/stylesheets/main.css" rel="stylesheet" />
+
+    <style>
+        .no-border {
+            border: none;
+        }
+
+        .govuk-header-container {
+            max-width: 1920px;
+            padding: 20px;
+            margin-bottom: -10px;
+        }
+
+        .logo-shift {
+            position: relative;
+            top: 2px;
+        }
+
+        .logo-inset {
+            margin: 0 15px;
+        }
+    </style>
+{% endblock %}
+
+{% block bodyStart %}
+    {{ super() }}
+{% endblock %}
+
+{% block header %}
+    {{ govukHeader({
+        homepageUrl: "/",
+        productName: "DWP",
+        serviceName: "SFT Configuration Creator",
+        serviceUrl: "/",
+        navigation: [
+            {
+                text: 'Plugin repository',
+                href: '#'
+            },
+            {
+                text: 'Glossary',
+                href: '/glossary'
+            }
+        ]
+    }) }}
+{% endblock %}
+
+{% block main %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+    {{ govukPhaseBanner({
+        tag: {
+            text: 'internal'
+        },
+        html: 'This is an internally developed service - your <a class="govuk-link" href="' + metadata.bugs.url + '">feedback</a> will help us to improve it.'
+    }) }}
+    {% block breadcrumbs %}{% endblock %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-body">
+        {% block content_body %}
+        {% endblock %}
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {% if creating_routes %}
+        {% set footerItems=[ { text: 'Reset journey progress', href: '/reset' } ] %}
+    {% else %}
+        {% set footerItems=[] %}
+    {% endif %}
+    {{ govukFooter({
+        meta: {
+            items: footerItems,
+            html: 'Built by <a href="https://twitter.com/j4numbers" class="govuk-footer__link">@J4Numbers</a> | Version ' + metadata.version
+        }
+    }) }}
+
+{% endblock %}
+
+{% block bodyEnd %}
+    {{ super() }}
+    {% block body_end %}
+    {% endblock %}
+{% endblock %}

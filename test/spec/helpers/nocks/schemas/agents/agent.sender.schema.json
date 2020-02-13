@@ -1,0 +1,175 @@
+{
+  "name": "agent.sender.2.2.1.jre8.schema.json",
+  "last_modified": "",
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://dwp.gov.uk/integration/sft/2.2.1/jre8/sending-route.schema.json",
+    "type": "object",
+    "title": "Sending route configuration",
+    "required": [
+      "name",
+      "source",
+      "actions",
+      "errorFolder"
+    ],
+    "oneOf": [
+      {
+        "required": [
+          "deleteOnSend"
+        ]
+      },
+      {
+        "required": [
+          "archiveFolder"
+        ]
+      }
+    ],
+    "properties": {
+      "name": {
+        "$id": "#/properties/sending/name",
+        "type": "string",
+        "title": "Name of route",
+        "description": "The name of this route relative to this agent",
+        "examples": [
+          "agentA-to-agentB"
+        ],
+        "pattern": "^[-A-z0-9._~/]+$"
+      },
+      "source": {
+        "$id": "#/properties/sending/source",
+        "type": "string",
+        "title": "Source location",
+        "description": "The absolute location on disk for where to draw files from (do not create files in this directory; use an atomic operation - such as mv - instead)",
+        "examples": [
+          "/one/source/folder/",
+          "/another/source/folder/location/"
+        ],
+        "pattern": "^/([^/]+/)+$"
+      },
+      "actions": {
+        "$id": "#/properties/sending/actions",
+        "title": "File actions",
+        "description": "An ordered set of actions to be performed on any file transferred",
+        "type": "array",
+        "items": {
+          "$schema": "http://json-schema.org/draft-07/schema",
+          "$id": "https://dwp.gov.uk/integration/sft/2.2.1/jre8/actions.schema.json",
+          "type": "object",
+          "title": "Actions definition",
+          "oneOf": [
+            {
+              "$id": "https://dwp.gov.uk/integration/sft/actions/httpRequest/2.2.1/jre8/action.schema.json",
+              "$schema": "https://dwp.gov.uk/integration/sft/meta/action.meta.schema.json",
+              "name": "httpRequest",
+              "availableByDefault": true,
+              "required": [
+                "destination"
+              ],
+              "properties": {
+                "destination": {
+                  "title": "Sending destination",
+                  "description": "The url destination to send a file",
+                  "type": "string",
+                  "examples": [
+                    "https://somewhere.place/some-api",
+                    "http://somewhere.place/some-other-api"
+                  ]
+                }
+              }
+            },
+            {
+              "$id": "https://dwp.gov.uk/integration/sft/actions/writeFile/2.2.1/jre8/actions/action.schema.json",
+              "$schema": "../action.meta.schema.json",
+              "name": "writeFile",
+              "availableByDefault": true,
+              "required": [
+                "destination"
+              ],
+              "properties": {
+                "destination": {
+                  "title": "Writing destination",
+                  "description": "The directory where a file will be written to",
+                  "type": "string",
+                  "examples": [
+                    "./tmp/",
+                    "/tmp/sft/location/"
+                  ]
+                },
+                "tempFolder": {
+                  "title": "Temporary folder",
+                  "description": "The temporary folder where the file is written to before being moved to the destination folder - can be absolute or relative to the SFT agent jar. Defaults to .tmp inside the destination folder",
+                  "type": "string",
+                  "examples": [
+                    "./tempFolder",
+                    "/tmp/sft/location"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "errorFolder": {
+        "$id": "#/properties/sending/error-folder",
+        "title": "Error file folder",
+        "description": "The folder in which to place files which errored during transfer. Either relative to the source location or absolute",
+        "type": "string",
+        "examples": [
+          "error",
+          "/some/error/folder/location"
+        ],
+        "pattern": "^/?([^/]+/)*([^/]+)$"
+      },
+      "filenameRegex": {
+        "$id": "#/properties/sending/filename-regex",
+        "title": "File name regex",
+        "description": "A regex pattern to apply to any file name in the incoming file folder",
+        "type": "string",
+        "default": ".*",
+        "examples": [
+          "^[-A-z0-9]+.txt$"
+        ]
+      },
+      "archiveFolder": {
+        "$id": "#/properties/sending/archive-folder",
+        "title": "Archive folder location",
+        "description": "The folder in which to place transferred files as an archive. Either relative to the source location or absolute",
+        "type": "string",
+        "default": ".archive",
+        "examples": [
+          ".archive",
+          "/some/archive/folder/location"
+        ],
+        "pattern": "^/?([^/]+/)*([^/]+)$"
+      },
+      "deleteOnSend": {
+        "$id": "#/properties/sending/delete-on-send",
+        "title": "Delete on send",
+        "description": "Choose whether to delete any transferred files after sending - must either delete on send or choose an archive folder",
+        "type": "boolean",
+        "default": false,
+        "examples": [
+          false,
+          true
+        ]
+      },
+      "threadPoolSize": {
+        "$id": "#/properties/sending/thread-pool-size",
+        "title": "Thread pool size",
+        "description": "The number of always-active threads used to service this route - must be at least one",
+        "type": "number",
+        "minimum": 1,
+        "default": 1,
+        "pattern": "^[0-9]+$"
+      },
+      "maxThreadPoolSize": {
+        "$id": "#/properties/sending/max-thread-pool-size",
+        "title": "Maximum thread pool size",
+        "description": "The maximum number of threads that this pool can grow to - must not be smaller than #/properties/sending/thread-pool-size",
+        "minimum": 1,
+        "default": 1,
+        "pattern": "^[0-9]+$"
+      }
+    }
+  }
+}
