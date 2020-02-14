@@ -8,7 +8,7 @@
 {% set assetPath = "/assets" %}
 
 {% block pageTitle %}
-    GOV.UK - SFT Configuration Creator{% block titleAddendum %}{% endblock %}
+    GOV.UK - Manage your debts {% block titleAddendum %}{% endblock %}
 {% endblock %}
 
 {% block headIcons %}
@@ -48,17 +48,9 @@
     {{ govukHeader({
         homepageUrl: "/",
         productName: "DWP",
-        serviceName: "SFT Configuration Creator",
+        serviceName: "Manage your debts",
         serviceUrl: "/",
         navigation: [
-            {
-                text: 'Plugin repository',
-                href: '#'
-            },
-            {
-                text: 'Glossary',
-                href: '/glossary'
-            }
         ]
     }) }}
 {% endblock %}
@@ -85,15 +77,10 @@
 {% endblock %}
 
 {% block footer %}
-    {% if creating_routes %}
-        {% set footerItems=[ { text: 'Reset journey progress', href: '/reset' } ] %}
-    {% else %}
-        {% set footerItems=[] %}
-    {% endif %}
     {{ govukFooter({
         meta: {
             items: footerItems,
-            html: 'Built by <a href="https://twitter.com/j4numbers" class="govuk-footer__link">@J4Numbers</a> | Version ' + metadata.version
+            html: 'Version ' + metadata.version
         }
     }) }}
 
