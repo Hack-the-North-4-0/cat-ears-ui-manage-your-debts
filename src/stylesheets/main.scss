@@ -8,9 +8,33 @@ $app-light-grey: #f8f8f8;
 $app-code-color: #d13118;
 
 .user-information {
+  display: flex;
+  flex-direction: column;
+
   &__account,
   &__title {
     margin: 0;
+  }
+
+  &__info {
+    max-width: 250px;
+    &--banking {
+      color: #059142;
+      font-weight: bold;
+    }
+  }
+
+  &__available-funds,
+  &__total-debt {
+    margin: 0;
+  }
+
+  .amount {
+    font-weight: bold;
+  }
+
+  &__add-account {
+    margin-left: auto;
   }
 }
 
