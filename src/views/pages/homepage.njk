@@ -17,10 +17,10 @@
 {% block content_body %}
     <h1 class="govuk-heading-xl">Manage your debts</h1>
 
-    <div class="wrapper">                                                                                                                   > Acct number </p>
+    <div class="wrapper">
         <div class="user-information">
             <h2 class="user-information__title">Hi Cien</h2>
-            <p class="user-information__account">XXXX XXX XX</span>
+            <p class="user-information__account">XXXX XXX XX</p>
             <p class="user-information__info"> Use <span class="user-information__info--banking">Open Banking</span> to get your available funds.</p>
             <p class="user-information__available-funds">Available Funds: <span class="amount">£755</span></p>
             <p class="user-information__total-debt">Your Total Debt: <span class="amount">£21,539</span></p>
@@ -33,7 +33,7 @@
                 <h3 class="debt-listing__company">Wonga</h3>
                 <p class="debt-listing__amount">£5,349</p>
                 {{ govukButton({
-                    text: "Manage"
+                    text: "Manage",
                     href: "/debt/wonga"
                 }) }}
             </div>
@@ -41,7 +41,7 @@
                 <h3 class="debt-listing__company">Barclaycard</h3>
                 <p class="debt-listing__amount">£9,800</p>
                 {{ govukButton({
-                    text: "Manage"
+                    text: "Manage",
                     href: "/debt/barclaycard"
                 }) }}
             </div>
@@ -49,7 +49,7 @@
                 <h3 class="debt-listing__company"> M&S Finance</h3>
                 <p class="debt-listing__amount">£6,390</p>
                 {{ govukButton({
-                    text: "Manage"
+                    text: "Manage",
                     href: "/debt/msfinance"
                 }) }}
             </div>

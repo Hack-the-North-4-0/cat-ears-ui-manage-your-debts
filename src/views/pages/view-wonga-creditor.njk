@@ -1,0 +1,23 @@
+{% extends "layouts/base.njk" %}
+
+{% from "breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "button/macro.njk" import govukButton %}
+
+{% block breadcrumbs %}
+    {{ govukBreadcrumbs({
+        items: [
+            {
+                text: "Home",
+                href: "/"
+            },
+            {
+              text: "Wonga",
+            }
+        ]
+    }) }}
+{% endblock %}
+
+{% block content_body %}
+    <h1 class="govuk-heading-xl">Creditor</h1>
+
+{% endblock %}
