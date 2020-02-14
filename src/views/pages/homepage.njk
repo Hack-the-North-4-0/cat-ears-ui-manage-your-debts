@@ -30,24 +30,27 @@
         <div class="debt-listings">
             <h2 class="debt-listings__title">Accounts</h2>
             <div class="debt-listing high">
-                <h3 class="debt-listing__company"><a class="govuk-link govuk-link--no-visited-state" href="#">Wonga</a></h3>
+                <h3 class="debt-listing__company">Wonga</h3>
                 <p class="debt-listing__amount">£5,349</p>
                 {{ govukButton({
-                text: "Pay Now"
+                    text: "Manage"
+                    href: "/debt/wonga"
                 }) }}
             </div>
             <div class="debt-listing medium">
                 <h3 class="debt-listing__company">Barclaycard</h3>
                 <p class="debt-listing__amount">£9,800</p>
                 {{ govukButton({
-                text: "Pay Now"
+                    text: "Manage"
+                    href: "/debt/barclaycard"
                 }) }}
             </div>
             <div class="debt-listing low">
                 <h3 class="debt-listing__company"> M&S Finance</h3>
                 <p class="debt-listing__amount">£6,390</p>
                 {{ govukButton({
-                text: "Pay Now"
+                    text: "Manage"
+                    href: "/debt/msfinance"
                 }) }}
             </div>
         </div>
