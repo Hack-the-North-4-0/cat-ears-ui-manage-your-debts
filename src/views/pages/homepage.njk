@@ -27,12 +27,14 @@
         
         </div>
 
-        <div class="debt-listing">
-            <h2 class="debt-listing__title">Accounts</h2>
+        <div class="debt-listings">
+            <h2 class="debt-listings__title">Accounts</h2>
             <div class="debt-listing">
                 <h3 class="debt-listing__company"> Sky </h2>
                 <p class="debt-listing__amount">£xx.xx</p>
-                <button> Pay </button>
+                {{ govukButton({
+                text: "Pay Now"
+                }) }}
             </div>  
         </div>
     </div>
