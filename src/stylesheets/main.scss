@@ -6,3 +6,14 @@
 // App-specific variables
 $app-light-grey: #f8f8f8;
 $app-code-color: #d13118;
+
+.user-information {
+  &__account,
+  &__title {
+    margin: 0;
+  }
+}
+
+body {
+  background: red;
+}
