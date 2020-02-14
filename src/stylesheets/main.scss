@@ -49,18 +49,31 @@ $app-code-color: #d13118;
   border-radius: 3px;
   padding: 1em 3em;
   display: flex;
+  margin-top: .5em;
   flex-direction: column;
   &__company {
     margin: 0;
-    font-size: 2.2em;
+    font-size: 1.5em;
     text-align: center;
   }
   &__amount {
     margin: 0;
     font-size: 2em;
-    margin: 1em 0;
+    margin: .5em 0;
   }
   .govuk-button {
     margin: 0 0 0 auto;
   }
+}
+
+.debt-listing.high {
+  background: #FFE3DD;
+}
+
+.debt-listing.medium {
+  background: #FFEFCA;
+}
+
+.debt-listing.low {
+  background: #E0FFE1;
 }

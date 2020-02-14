@@ -25,18 +25,31 @@
             <p class="user-information__available-funds">Available Funds: <span class="amount">£xx,xx</span></p>
             <p class="user-information__total-debt">Your Total Debt: <span class="amount">£x,xxx,xx</span></p>
             <p class="user-information__add-account">+ Add Account</p>
-            <hr/>
         </div>
 
         <div class="debt-listings">
             <h2 class="debt-listings__title">Accounts</h2>
-            <div class="debt-listing">
+            <div class="debt-listing high">
                 <h3 class="debt-listing__company"> Sky </h2>
                 <p class="debt-listing__amount">£xx.xx</p>
                 {{ govukButton({
                 text: "Pay Now"
                 }) }}
-            </div>  
+            </div>
+            <div class="debt-listing medium">
+                <h3 class="debt-listing__company"> Sky </h2>
+                <p class="debt-listing__amount">£xx.xx</p>
+                {{ govukButton({
+                text: "Pay Now"
+                }) }}
+            </div>
+            <div class="debt-listing low">
+                <h3 class="debt-listing__company"> Sky </h2>
+                <p class="debt-listing__amount">£xx.xx</p>
+                {{ govukButton({
+                text: "Pay Now"
+                }) }}
+            </div>    
         </div>
     </div>
 
