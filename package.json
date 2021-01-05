@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/Hack-the-North-4-0/cat-ears-ui-manage-your-debts#readme",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bunyan": "^1.8.12",
     "config": "^3.2.5",
     "govuk-frontend": "^3.0.0",
